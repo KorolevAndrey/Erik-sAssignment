@@ -37,7 +37,10 @@ public class MainActivity extends Activity implements OnClickListener {
 
     private Button mTakePhoto;
     private ImageView mImageView;
+    private Button uploadButton;
+    private ImageView uploadImage;
     private Uri photoURI;
+    private Bitmap imageBitmap;
     private static final String TAG = "upload";
 
     static final int REQUEST_TAKE_PHOTO = 1;
@@ -58,8 +61,11 @@ public class MainActivity extends Activity implements OnClickListener {
 
         mTakePhoto = (Button) findViewById(R.id.take_photo);
         mImageView = (ImageView) findViewById(R.id.imageview);
+        uploadButton = (Button) findViewById(R.id.uploadButton);
+        uploadImage = (ImageView) findViewById(R.id.uploadImage);
 
         mTakePhoto.setOnClickListener(this);
+        uploadButton.setOnClickListener(this);
     }
 
     @Override
@@ -76,6 +82,14 @@ public class MainActivity extends Activity implements OnClickListener {
         switch (id) {
             case R.id.take_photo:
                 takePhoto();
+                break;
+            case R.id.uploadButton:
+                try {
+                    sendPhoto(imageBitmap);
+                } catch (Exception e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
                 break;
         }
     }
@@ -96,17 +110,18 @@ public class MainActivity extends Activity implements OnClickListener {
             System.out.println("TestB " + requestCode + "::" + REQUEST_IMAGE_CAPTURE);
             Bundle extras = data.getExtras();
             System.out.println("TestC " + requestCode + "::" + REQUEST_IMAGE_CAPTURE);
-            Bitmap imageBitmap = (Bitmap) extras.get("data");
+            imageBitmap = (Bitmap) extras.get("data");
             System.out.println("TestD " + requestCode + "::" + REQUEST_IMAGE_CAPTURE);
             mImageView.setImageBitmap(imageBitmap);
             System.out.println("TestE " + requestCode + "::" + REQUEST_IMAGE_CAPTURE);
-
-            try {
-                sendPhoto(imageBitmap);
-            } catch (Exception e) {
+            uploadButton.setVisibility(View.VISIBLE);
+            uploadImage.setVisibility(View.VISIBLE);
+            // try {
+                // sendPhoto(imageBitmap);
+            // } catch (Exception e) {
                 // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
+                // e.printStackTrace();
+            // }
         }
     }
 

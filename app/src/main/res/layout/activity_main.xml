@@ -8,7 +8,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity" >
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/linear_layout"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content" >
@@ -23,13 +23,35 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
-            android:text="@string/take_photo"
+            android:text="            +Camera"
             android:paddingTop="18px"
             android:textColor="@android:color/background_dark"
             android:textSize="30px"
             android:textStyle="bold" />
 
-    </LinearLayout>
+        <Button
+            android:id="@+id/uploadButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:background="@android:color/transparent"
+            android:text="Upload              "
+            android:textColor="@android:color/background_dark"
+            android:textSize="30px"
+            android:textStyle="bold"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/uploadImage"
+            android:layout_width="83px"
+            android:layout_height="93px"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/uploadbtn"
+            android:visibility="invisible" />
+
+    </RelativeLayout>
 
     <ImageView
         android:id="@+id/imageview"
