@@ -37,6 +37,7 @@
             android:layout_alignParentRight="true"
             android:background="@android:color/transparent"
             android:text="Upload              "
+            android:paddingTop="18px"
             android:textColor="@android:color/background_dark"
             android:textSize="30px"
             android:textStyle="bold"
