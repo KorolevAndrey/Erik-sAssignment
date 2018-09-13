@@ -10,10 +10,10 @@ To get built apk, please click this link http://103.78.39.10:8080/test/uploads/a
 
 <h4>Here are screenshoots of the page of application</h4>
 
-<img src="http://103.78.39.10:8080/test/Screenshot_20180913-143306.jpg" width="216" height="384"/>
+<img src="http://103.78.39.10:8080/test/1.jpg" width="216" height="384"/>
 
-<img src="http://103.78.39.10:8080/test/Screenshot_20180913-143328.jpg" width="216" height="384"/>
+<img src="http://103.78.39.10:8080/test/2.jpg" width="216" height="384"/>
 
-<img src="http://103.78.39.10:8080/test/Screenshot_20180913-143343.jpg" width="216" height="384"/>
+<img src="http://103.78.39.10:8080/test/3.jpg" width="216" height="384"/>
 
-<img src="http://103.78.39.10:8080/test/Screenshot_20180913-143623.jpg" width="216" height="384"/>
+<img src="http://103.78.39.10:8080/test/4.jpg" width="216" height="384"/>
