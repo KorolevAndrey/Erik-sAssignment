@@ -35,6 +35,7 @@ import android.support.v4.content.FileProvider;
 
 public class MainActivity extends Activity implements OnClickListener {
 
+    private ImageView camera;
     private Button mTakePhoto;
     private ImageView mImageView;
     private Button uploadButton;
@@ -59,13 +60,16 @@ public class MainActivity extends Activity implements OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        camera = (ImageView) findViewById(R.id.camera);
         mTakePhoto = (Button) findViewById(R.id.take_photo);
         mImageView = (ImageView) findViewById(R.id.imageview);
         uploadButton = (Button) findViewById(R.id.uploadButton);
         uploadImage = (ImageView) findViewById(R.id.uploadImage);
 
+        camera.setOnClickListener(this);
         mTakePhoto.setOnClickListener(this);
         uploadButton.setOnClickListener(this);
+        uploadImage.setOnClickListener(this);
     }
 
     @Override
@@ -82,7 +86,10 @@ public class MainActivity extends Activity implements OnClickListener {
         switch (id) {
             case R.id.take_photo:
                 takePhoto();
-                break;
+            break;
+            case R.id.camera:
+                takePhoto();
+            break;
             case R.id.uploadButton:
                 try {
                     sendPhoto(imageBitmap);
@@ -90,14 +97,19 @@ public class MainActivity extends Activity implements OnClickListener {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
-                break;
+            break;
+            case R.id.uploadImage:
+                try {
+                    sendPhoto(imageBitmap);
+                } catch (Exception e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+            break;
         }
     }
 
     private void takePhoto() {
-//		Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
-//		intent.putExtra(MediaStore.EXTRA_VIDEO_QUALITY, 1);
-//		startActivityForResult(intent, 0);
         dispatchTakePictureIntent();
     }
 
@@ -116,12 +128,6 @@ public class MainActivity extends Activity implements OnClickListener {
             System.out.println("TestE " + requestCode + "::" + REQUEST_IMAGE_CAPTURE);
             uploadButton.setVisibility(View.VISIBLE);
             uploadImage.setVisibility(View.VISIBLE);
-            // try {
-                // sendPhoto(imageBitmap);
-            // } catch (Exception e) {
-                // TODO Auto-generated catch block
-                // e.printStackTrace();
-            // }
         }
     }
 
@@ -276,6 +282,7 @@ public class MainActivity extends Activity implements OnClickListener {
     }
 
     /**
+     * for reference:
      * http://developer.android.com/training/camera/photobasics.html
      */
 

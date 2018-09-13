@@ -16,6 +16,7 @@
         <ImageView
             android:layout_width="83px"
             android:src="@drawable/camera"
+            android:id="@+id/camera"
             android:layout_height="93px" />
 
         <Button
